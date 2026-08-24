@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lexi's Villagers</title>
+    <title>Document</title>
     <style>
         :root {
             --color-primary-100: #662b82;
@@ -41,6 +41,7 @@
         }
         html {
             background-color: var(--tint-100);
+            padding: 1rem;
         }
         body {
             -webkit-font-smoothing: antialiased;
@@ -53,12 +54,20 @@
             min-height: 100dvh;
             min-width: 100dvh;
         }
-        header {
+        header,
+        main,
+        footer {
+            width: calc(100% - 2rem);
             padding: 2rem 0;
+        }
+        header,
+        footer {
+            text-align: center;
+        }
+        header {
             background-color: var(--tint-200);
             margin: 1rem 0;
             border-radius: 1rem;
-            text-align: center;
             color: var(--tint-950);
         }
         header p {
@@ -112,27 +121,22 @@
             background-color: white;
         }
         footer {
-            padding: 1rem;
             background-color: var(--tint-200);
             margin-bottom: 1rem;
             border-radius: .75rem;
             color: var(--tint-950);
         }
-        .container {
-            width: 100%;
-            margin: 0 auto;   
-        }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
+        
             <h1>Lexi's Villagers</h1>
             <p>All of the villagers currently living on the island of Velaris.</p>
-        </div>
+        
     </header>
     <main>
-        <div class="container">
+        
             <table id="villager-table" cellspacing="0">
                 <thead>
                     <tr>
@@ -147,12 +151,10 @@
                 <tbody>
                 </tbody>
             </table>
-        </div>
+        
     </main>
     <footer>
-        <div class="container">
             <p>This website is brought to you by the magic, grace, and infallable will of Aria, Princess of Genovia.</p>
-        </div>
     </footer>
     <script>
         const villagers = [
