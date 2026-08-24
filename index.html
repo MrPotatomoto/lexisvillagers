@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --color-primary-100: #662b82;
+            --color-primary-200: #75418f;
+            --color-primary-300: #83569c;
+            --color-primary-400: #926aa8;
+            --color-primary-500: #a17fb5;
+            --color-primary-600: #b193c1;
+            --color-primary-700: #c0a8ce;
+            --color-primary-800: #cfbeda;
+            --color-primary-900: #dfd3e6;
+            --color-primary-1000: #efe9f3;
+
+            --tint-100: #17091f;
+            --tint-200: #2a1d32;
+            --tint-300: #3e3246;
+            --tint-400: #54485b;
+            --tint-500: #6a6071;
+            --tint-600: #817987;
+            --tint-700: #99929e;
+            --tint-800: #b2acb5;
+            --tint-900: #cbc7cd;
+            --tint-950: #e5e3e6;                                                                            
+        }
+        @font-face {
+            font-family: "acnh";
+            src: url("./acnh/bin/FOT-Seurat-Pro-B.otf") format("opentype");
+        }
+        * {
+            font-family: "acnh";
+            font-weight: 100;
+            padding: 0;
+            border: 0;
+            margin: 0;
+        }
+        html {
+            background-color: var(--tint-100);
+        }
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            color: var(--tint-100);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100dvh;
+            min-width: 100dvh;
+        }
+        header {
+            padding: 2rem 0;
+            background-color: var(--tint-200);
+            margin: 1rem 0;
+            border-radius: 1rem;
+            text-align: center;
+            color: var(--tint-950);
+        }
+        header p {
+            font-family: sans-serif;
+            font-weight: 500;
+        }
+        main {
+            flex: 1;
+        }
+        table {
+            border-radius: 1rem;
+            color: black;
+            box-shadow: 3px 3px 9px 3px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+        th, td {
+            padding: .5rem 1rem;
+        }
+        thead {
+            background-color: var(--tint-200);
+            border-radius: .5rem;
+            color: white;
+        }
+        th {
+            font-size: 1.5rem;
+            user-select: none;
+            cursor: pointer;
+        }
+        th:first-child {
+            border-top-left-radius: 1rem;
+        }
+        th:last-child {
+            border-top-right-radius: 1rem;
+        }
+        tbody {
+            background-color: var(--color-primary-700);
+        }
+        tbody tr {
+            transition: all .25s ease-in-out;
+        }
+        tbody tr:nth-child(odd) {
+            background-color: var(--color-primary-800);
+        }
+        tbody tr:last-child td:first-child {
+            border-bottom-left-radius: 1rem;
+        }
+        tbody tr:last-child td:last-child {
+            border-bottom-right-radius: 1rem;
+        }
+        tbody tr:hover {
+            background-color: white;
+        }
+        footer {
+            padding: 1rem;
+            background-color: var(--tint-200);
+            margin-bottom: 1rem;
+            border-radius: .75rem;
+            color: var(--tint-950);
+        }
+        .container {
+            width: 1200px;
+            margin: 0 auto;   
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Lexi's Villagers</h1>
+            <p>All of the villagers currently living on the island of Velaris.</p>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <table id="villager-table" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th data-key="name">Name</th>
+                        <th data-key="color">Favorite Color</th>
+                        <th data-key="personality">Personality Type</th>
+                        <th data-key="hobby">Hobby</th>
+                        <th data-key="styles">Favorite Styles</th>
+                        <th data-key="birthday">Birthday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>This website is brought to you by the magic, grace, and infallable will of Aria, Princess of Genovia.</p>
+        </div>
+    </footer>
+    <script>
+        const villagers = [
+            {
+                "name": "Becky",
+                "color": ["Purple", "Pink"],
+                "personality": "Snooty",
+                "hobby": "Music",
+                "styles": ["Gorgeous", "Elegant"],
+                "birthday": "December 9th"
+            },
+            {
+                "name": "Rod",
+                "color": ["Blue", "Aqua"],
+                "personality": "Jock",
+                "hobby": "Fitness",
+                "styles": ["Active", "Cool"],
+                "birthday": "August 14th"
+            },
+            {
+                "name": "Bam",
+                "color": ["Green", "Brown"],
+                "personality": "Jock",
+                "hobby": "Play",
+                "styles": ["Active", "Simple"],
+                "birthday": "November 7th"
+            },
+            {
+                "name": "Flo",
+                "color": ["Red", "Purple"],
+                "personality": "Big Sister",
+                "hobby": "Music",
+                "styles": ["Cool", "Gorgeous"],
+                "birthday": "September 2nd"
+            },
+            {
+                "name": "Tia",
+                "color": ["Black", "White"],
+                "personality": "Normal",
+                "hobby": "Nature",
+                "styles": ["Cute", "Elegant"],
+                "birthday": "November 18th"
+            },
+            {
+                "name": "Peggy",
+                "color": ["Blue", "Red"],
+                "personality": "Peppy",
+                "hobby": "Fashion",
+                "styles": ["Cute", "Active"],
+                "birthday": "May 23rd"
+            },
+            {
+                "name": "Anicotti",
+                "color": ["Red", "Pink"],
+                "personality": "Peppy",
+                "hobby": "Fashion",
+                "styles": ["Simple", "Elegant"],
+                "birthday": "Febuary 24th"
+            },
+            {
+                "name": "Lobo",
+                "color": ["Black", "Beige"],
+                "personality": "Cranky",
+                "hobby": "Education",
+                "styles": ["Cool", "Active"],
+                "birthday": "November 5th"
+            },
+            {
+                "name": "Colton",
+                "color": ["Blue", "Red"],
+                "personality": "Smug",
+                "hobby": "Nature",
+                "styles": ["Gorgeous", "Elegant"],
+                "birthday": "May 22nd"
+            },
+            {
+                "name": "Jacques",
+                "color": ["Green", "Black"],
+                "personality": "Smug",
+                "hobby": "Music",
+                "styles": ["Cool", "Simple"],
+                "birthday": "June 22nd"
+            }
+        ]
+
+        function FillData() {
+            const tBody = document.querySelector("tbody")
+            tBody.innerHTML = ''
+    
+            for (let villager of villagers) {
+                var row = document.createElement("tr")
+                for (const [key, value] of Object.entries(villager)) {
+                    var cell = document.createElement("td")
+                    var text = ""
+                    var i = 0
+    
+                    if (Array.isArray(value)) {
+                        for (let n of value) {
+                            if (i === 1) {
+                                text += ", " + n
+                                i = 0
+                            } else {
+                                text += n
+                                i = 1
+                            }
+                        }
+                        cell.innerText = text
+                        row.append(cell)
+                    } else {
+                        cell.innerText = value
+                        row.append(cell)
+                    }
+                }
+                tBody.append(row)
+            }
+        }
+
+        function SortBy(evt) {
+            console.log(evt.target.dataset.key)
+
+            const criteria = evt.target.dataset.key
+
+            villagers.sort((a, b) => {
+                if (a[criteria] === undefined || a[criteria] === null) return 1;
+                if (b[criteria] === undefined || b[criteria] === null) return -1;
+                
+                if (a[criteria] < b[criteria]) return -1;
+                if (a[criteria] > b[criteria]) return 1;
+                return 0;
+            })
+
+            FillData();
+        }
+
+        const headers = document.querySelectorAll('th')
+        for (let header of headers) {
+            header.addEventListener('click', SortBy)
+        }
+
+        FillData();
+
+    </script>
+</body>
+</html>
